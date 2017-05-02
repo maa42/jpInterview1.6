@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row">
+        <span class="col-xs-12 col-sm-6 col-md-4">
+            <input id="btn-input" type="text" class="form-control" ng-model="txtSearch" placeholder="Search"/>
+         </span>
+    </div>
+
+    <div class="container" ng-repeat="userPost in userPostsData | filter:txtSearch">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" id="accordion">
+                        <span class="glyphicon glyphicon-comment"></span> Posts
+                        <div class="btn-group pull-right">
+                            <a type="button" class="btn btn-default btn-xs" data-toggle="collapse"
+                               data-parent="#accordion" href="#collapseOne">
+                                <span class="glyphicon glyphicon-chevron-down"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="panel-collapse" id="collapseOne">
+                        <div class="panel-body">
+                            <ul class="chat">
+                                <li class="right clearfix">
+                                    <span class="chat-img pull-right">
+                                            <img src="http://placehold.it/50/FA6F57/fff&text=Reply" alt="User Avatar"  class="img-circle"/>
+                                    </span>
+                                    <div class="chat-body clearfix">
+                                        <div class="header">
+                                            <small class=" text-muted"><span class="glyphicon  glyphicon-user"></span>{{::userPost.title}}
+                                            </small>
+                                            <strong class="pull-right primary-font">
+                                                <a href="mailto:{{::userPost.email}}">
+                                                    {{::userPost.username}}</a>
+
+                                            </strong>
+                                        </div>
+                                        <p>
+                                            {{::userPost.body}}
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
